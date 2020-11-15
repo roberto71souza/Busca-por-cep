@@ -1,0 +1,72 @@
+﻿@model Projeto_Busca_Cep.Models.Cep
+@{
+    ViewData["Title"] = "Home Page";
+
+    @if (TempData["msg"] != null)
+    {
+        <script>
+            alert('@(TempData["msg"])');
+        </script>
+    }
+}
+
+<div class="container">
+    <style>
+        .item {
+            padding: 15px;
+        }
+
+        .row {
+            margin-top: 20px;
+            border: 1px solid blue;
+            border-radius: 5px;
+            padding: 15px;
+        }
+    </style>
+    <form class="form-inline" asp-action="Busca">
+        <div class="input-group">
+            <a>Cep :</a>
+            <input type="text" class="form-control col-5" asp-for="CEP" />
+            <div class="input-group-btn">
+                <button type="submit" class="btn btn-light"> Buscar </button>
+            </div>
+        </div>
+    </form>
+
+    <div class="row">
+        <div class="item col-6">
+            <div class="input-group">
+                <label asp-for="Logradouro"></label>
+                <input type="text" class="form-control logradouro" name="cep" asp-for="Logradouro" readonly/>
+            </div>
+        </div>
+
+        <div class="item col-5">
+            <div class="input-group">
+                <label asp-for="Bairro"></label>
+                <input type="text" class="form-control bairro" name="cep" asp-for="Bairro" readonly/>
+            </div>
+        </div>
+        <div class="w-100"></div>
+        <div class="item col-3">
+            <div class="input-group">
+                <label asp-for="Localidade"></label>
+                <input type="text" class="form-control bairro" name="cep" asp-for="Localidade" readonly/>
+            </div>
+        </div>
+
+        <div class="item col-2">
+            <div class="input-group">
+                <label asp-for="UF"></label>
+                <input type="text" class="form-control mn" name="cep" asp-for="UF" readonly/>
+            </div>
+        </div>
+        <div class="item col-2">
+            <div class="input-group">
+                <label asp-for="DDD"></label>
+                <input type="text" class="form-control mn" name="cep" asp-for="DDD" readonly/>
+            </div>
+        </div>
+    </div>
+</div>
+
